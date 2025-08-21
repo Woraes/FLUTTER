@@ -11,6 +11,8 @@ workflows:
         PACKAGE_NAME: "com.example.app_institucional"
     scripts:
       - flutter pub get
+      - flutter clean
+      - flutter pub get
       - flutter build apk --release
       - flutter build ios --release --no-codesign
       - flutter build web --release
