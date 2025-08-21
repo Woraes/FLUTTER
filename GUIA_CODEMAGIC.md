@@ -9,6 +9,7 @@ O projeto agora está **perfeitamente configurado** para compilar no Codemagic.i
 - ✅ **iOS 14.0**: Podfile configurado para compatibilidade com `google_maps_flutter`
 - ✅ **Dependências completas**: Todas as dependências necessárias no `pubspec.yaml`
 - ✅ **Core Library Desugaring**: Habilitado para `flutter_local_notifications`
+- ✅ **awesome_notifications removido**: Substituído por `flutter_local_notifications` (mais estável)
 - ✅ **codemagic.yaml**: Configuração otimizada para build automático
 
 ## 📱 **Como Usar no Codemagic**
@@ -60,7 +61,7 @@ E:\FLUTTER\
 ├── ios/              # Configurações iOS (iOS 14.0+)
 ├── web/              # Configurações Web
 ├── lib/              # Código Flutter
-├── pubspec.yaml      # Dependências
+├── pubspec.yaml      # Dependências (sem awesome_notifications)
 ├── codemagic.yaml    # Configuração CI/CD
 └── [outros arquivos]
 ```
@@ -80,14 +81,14 @@ E:\FLUTTER\
 - ✅ Navegação por abas
 - ✅ Geolocalização
 - ✅ Reporte de ocorrências
-- ✅ Notificações locais
+- ✅ Notificações locais (flutter_local_notifications)
 
 ## 🚀 **Próximos Passos**
 
 ### **1. Commit e Push**
 ```bash
 git add .
-git commit -m "Configuração completa para Codemagic - Corrigido desugaring"
+git commit -m "Removido awesome_notifications - Corrigido build Android"
 git push origin main
 ```
 
@@ -108,12 +109,14 @@ git push origin main
 2. Confirme que o iOS está configurado para 14.0+
 3. Verifique se o `codemagic.yaml` está na raiz
 4. Confirme que o desugaring está habilitado no Android
+5. Verifique se não há referências ao `awesome_notifications`
 
 ### **Erros comuns:**
 - **"runner does not exist"**: Estrutura já está correta ✅
 - **"iOS deployment target"**: Já corrigido para 14.0 ✅
 - **"missing dependencies"**: Todas adicionadas ✅
 - **"core library desugaring"**: Já corrigido ✅
+- **"awesome_notifications compilation"**: Removido ✅
 
 ## 📞 **Suporte**
 
@@ -129,7 +132,7 @@ Se ainda houver problemas:
 **Seu projeto está 100% pronto para o Codemagic!**
 
 - ✅ Estrutura correta
-- ✅ Dependências completas
+- ✅ Dependências completas (sem awesome_notifications)
 - ✅ Configuração iOS 14.0
 - ✅ Core Library Desugaring habilitado
 - ✅ Workflow otimizado
