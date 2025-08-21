@@ -1,10 +1,14 @@
 workflows:
-  build_root_project:
-    name: Build Flutter (raiz)
+  build_flutter_app:
+    name: Build Flutter App
     max_build_duration: 60
     environment:
       flutter: stable
       xcode: latest
+      android_signing:
+        - keystore_reference
+      vars:
+        PACKAGE_NAME: "com.example.app_institucional"
     scripts:
       - flutter pub get
       - flutter build apk --release
@@ -14,22 +18,8 @@ workflows:
       - build/app/outputs/flutter-apk/*.apk
       - build/ios/iphoneos/*.app
       - build/web/**
-
-  build_subdir_app_institucional:
-    name: Build Flutter (app_institucional/)
-    max_build_duration: 60
-    environment:
-      flutter: stable
-      xcode: latest
-      vars:
-        WORKING_DIRECTORY: app_institucional
-    scripts:
-      - cd $WORKING_DIRECTORY && flutter pub get
-      - cd $WORKING_DIRECTORY && flutter build apk --release
-      - cd $WORKING_DIRECTORY && flutter build ios --release --no-codesign
-      - cd $WORKING_DIRECTORY && flutter build web --release
-    artifacts:
-      - app_institucional/build/app/outputs/flutter-apk/*.apk
-      - app_institucional/build/ios/iphoneos/*.app
-      - app_institucional/build/web/**
+    publishing:
+      email:
+        recipients:
+          - your-email@example.com
 
