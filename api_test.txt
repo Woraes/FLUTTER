@@ -1,0 +1,406 @@
+### Exemplo de requisições para API REST usando extensão API Client (ex: .rest ou .http)
+
+# USUÁRIOS
+GET http://localhost:3000/api/usuarios
+Accept: application/json
+
+###
+POST http://localhost:3000/api/usuarios
+Content-Type: application/json
+
+{
+  "nome": "João",
+  "email": "joao@email.com",
+  "senha": "123456"
+}
+
+###
+GET http://localhost:3000/api/usuarios/1
+Accept: application/json
+
+###
+PUT http://localhost:3000/api/usuarios/1
+Content-Type: application/json
+
+{
+  "nome": "João da Silva"
+}
+
+###
+DELETE http://localhost:3000/api/usuarios/1
+
+###
+# ÓRGÃOS
+GET http://localhost:3000/api/orgaos
+Accept: application/json
+
+###
+POST http://localhost:3000/api/orgaos
+Content-Type: application/json
+
+{
+  "nome": "Guarda Municipal"
+}
+
+###
+GET http://localhost:3000/api/orgaos/1
+Accept: application/json
+
+###
+PUT http://localhost:3000/api/orgaos/1
+Content-Type: application/json
+
+{
+  "nome": "Defesa Civil"
+}
+
+###
+DELETE http://localhost:3000/api/orgaos/1
+
+###
+# TIPOS DE OCORRÊNCIA
+GET http://localhost:3000/api/tipos_ocorrencia
+Accept: application/json
+
+###
+POST http://localhost:3000/api/tipos_ocorrencia
+Content-Type: application/json
+
+{
+  "descricao": "Roubo"
+}
+
+###
+GET http://localhost:3000/api/tipos_ocorrencia/1
+Accept: application/json
+
+###
+PUT http://localhost:3000/api/tipos_ocorrencia/1
+Content-Type: application/json
+
+{
+  "descricao": "Furto"
+}
+
+###
+DELETE http://localhost:3000/api/tipos_ocorrencia/1
+
+###
+# AGENTES ÓRGÃOS
+GET http://localhost:3000/api/agentes_orgaos
+Accept: application/json
+
+###
+POST http://localhost:3000/api/agentes_orgaos
+Content-Type: application/json
+
+{
+  "nome": "Agente 1",
+  "orgao_id": 1
+}
+
+###
+GET http://localhost:3000/api/agentes_orgaos/1
+Accept: application/json
+
+###
+PUT http://localhost:3000/api/agentes_orgaos/1
+Content-Type: application/json
+
+{
+  "nome": "Agente 2"
+}
+
+###
+DELETE http://localhost:3000/api/agentes_orgaos/1
+
+###
+# OCORRÊNCIAS
+GET http://localhost:3000/api/ocorrencias
+Accept: application/json
+
+###
+POST http://localhost:3000/api/ocorrencias
+Content-Type: application/json
+
+{
+  "titulo": "Furto",
+  "descricao": "Descrição do furto",
+  "tipo_id": 1
+}
+
+###
+GET http://localhost:3000/api/ocorrencias/1
+Accept: application/json
+
+###
+PUT http://localhost:3000/api/ocorrencias/1
+Content-Type: application/json
+
+{
+  "titulo": "Roubo"
+}
+
+###
+DELETE http://localhost:3000/api/ocorrencias/1
+
+###
+# OCORRÊNCIA ANEXOS
+GET http://localhost:3000/api/ocorrencia_anexos
+Accept: application/json
+
+###
+POST http://localhost:3000/api/ocorrencia_anexos
+Content-Type: application/json
+
+{
+  "ocorrencia_id": 1,
+  "url": "http://anexo.com/1"
+}
+
+###
+GET http://localhost:3000/api/ocorrencia_anexos/1
+Accept: application/json
+
+###
+PUT http://localhost:3000/api/ocorrencia_anexos/1
+Content-Type: application/json
+
+{
+  "url": "http://anexo.com/2"
+}
+
+###
+DELETE http://localhost:3000/api/ocorrencia_anexos/1
+
+###
+# OCORRÊNCIA HISTÓRICO
+GET http://localhost:3000/api/ocorrencia_histor
+Accept: application/json
+
+###
+POST http://localhost:3000/api/ocorrencia_histor
+Content-Type: application/json
+
+{
+  "ocorrencia_id": 1,
+  "status": "aberta"
+}
+
+###
+GET http://localhost:3000/api/ocorrencia_histor/1
+Accept: application/json
+
+###
+PUT http://localhost:3000/api/ocorrencia_histor/1
+Content-Type: application/json
+
+{
+  "status": "fechada"
+}
+
+###
+DELETE http://localhost:3000/api/ocorrencia_histor/1
+
+###
+# EMERGÊNCIAS
+GET http://localhost:3000/api/emergencias
+Accept: application/json
+
+###
+POST http://localhost:3000/api/emergencias
+Content-Type: application/json
+
+{
+  "descricao": "Incêndio",
+  "local": "Rua X"
+}
+
+###
+GET http://localhost:3000/api/emergencias/1
+Accept: application/json
+
+###
+PUT http://localhost:3000/api/emergencias/1
+Content-Type: application/json
+
+{
+  "descricao": "Alagamento"
+}
+
+###
+DELETE http://localhost:3000/api/emergencias/1
+
+###
+# VIATURAS
+GET http://localhost:3000/api/viaturas
+Accept: application/json
+
+###
+POST http://localhost:3000/api/viaturas
+Content-Type: application/json
+
+{
+  "placa": "ABC-1234",
+  "modelo": "SUV"
+}
+
+###
+GET http://localhost:3000/api/viaturas/1
+Accept: application/json
+
+###
+PUT http://localhost:3000/api/viaturas/1
+Content-Type: application/json
+
+{
+  "modelo": "Caminhonete"
+}
+
+###
+DELETE http://localhost:3000/api/viaturas/1
+
+###
+# EQUIPAMENTOS
+GET http://localhost:3000/api/equipamentos
+Accept: application/json
+
+###
+POST http://localhost:3000/api/equipamentos
+Content-Type: application/json
+
+{
+  "nome": "Rádio",
+  "tipo": "Comunicação"
+}
+
+###
+GET http://localhost:3000/api/equipamentos/1
+Accept: application/json
+
+###
+PUT http://localhost:3000/api/equipamentos/1
+Content-Type: application/json
+
+{
+  "nome": "Colete"
+}
+
+###
+DELETE http://localhost:3000/api/equipamentos/1
+
+###
+# COMUNICAÇÕES
+GET http://localhost:3000/api/comunicacoes
+Accept: application/json
+
+###
+POST http://localhost:3000/api/comunicacoes
+Content-Type: application/json
+
+{
+  "mensagem": "Teste",
+  "usuario_id": 1
+}
+
+###
+GET http://localhost:3000/api/comunicacoes/1
+Accept: application/json
+
+###
+PUT http://localhost:3000/api/comunicacoes/1
+Content-Type: application/json
+
+{
+  "mensagem": "Atualizada"
+}
+
+###
+DELETE http://localhost:3000/api/comunicacoes/1
+
+###
+# ESCALAS
+GET http://localhost:3000/api/escalas
+Accept: application/json
+
+###
+POST http://localhost:3000/api/escalas
+Content-Type: application/json
+
+{
+  "usuario_id": 1,
+  "data": "2025-08-19"
+}
+
+###
+GET http://localhost:3000/api/escalas/1
+Accept: application/json
+
+###
+PUT http://localhost:3000/api/escalas/1
+Content-Type: application/json
+
+{
+  "data": "2025-08-20"
+}
+
+###
+DELETE http://localhost:3000/api/escalas/1
+
+###
+# RELATÓRIOS
+GET http://localhost:3000/api/relatorios
+Accept: application/json
+
+###
+POST http://localhost:3000/api/relatorios
+Content-Type: application/json
+
+{
+  "titulo": "Relatório 1",
+  "conteudo": "Texto"
+}
+
+###
+GET http://localhost:3000/api/relatorios/1
+Accept: application/json
+
+###
+PUT http://localhost:3000/api/relatorios/1
+Content-Type: application/json
+
+{
+  "titulo": "Relatório 2"
+}
+
+###
+DELETE http://localhost:3000/api/relatorios/1
+
+###
+# CONFIGURAÇÕES
+GET http://localhost:3000/api/configuracoes
+Accept: application/json
+
+###
+POST http://localhost:3000/api/configuracoes
+Content-Type: application/json
+
+{
+  "chave": "tema",
+  "valor": "escuro"
+}
+
+###
+GET http://localhost:3000/api/configuracoes/1
+Accept: application/json
+
+###
+PUT http://localhost:3000/api/configuracoes/1
+Content-Type: application/json
+
+{
+  "valor": "claro"
+}
+
+###
+DELETE http://localhost:3000/api/configuracoes/1
