@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/config/app_config.dart';
 import 'core/theme/app_theme.dart';
 import 'presentation/auth/auth_bloc.dart';
 import 'presentation/citizen/citizen_home_page.dart';
+import 'presentation/monitoring/monitoring_dashboard_page.dart';
 import 'presentation/auth/login_page.dart';
 
 void main() async {
@@ -50,12 +52,19 @@ class AuthWrapper extends StatelessWidget {
         }
 
         if (state is AuthAuthenticated) {
-          // Verificar se é um munícipe
-          if (state.user.isCitizen) {
-            return CitizenHomePage(user: state.user);
+          // Detectar plataforma e tipo de usuário
+          if (kIsWeb) {
+            // WEB: Sempre mostra dashboard de monitoramento
+            return MonitoringDashboardPage(user: state.user);
+          } else {
+            // MOBILE: Mostra interface baseada no tipo de usuário
+            if (state.user.isCitizen) {
+              return CitizenHomePage(user: state.user);
+            } else {
+              // Para agentes no mobile, também mostra dashboard de monitoramento
+              return MonitoringDashboardPage(user: state.user);
+            }
           }
-          // Para agentes e admins, usar a página geral (a ser implementada)
-          return CitizenHomePage(user: state.user);
         }
 
         return const LoginPage();

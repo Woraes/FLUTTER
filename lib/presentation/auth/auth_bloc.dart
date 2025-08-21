@@ -114,22 +114,30 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       // Simular login via API
       await Future.delayed(const Duration(seconds: 2));
       
+      // Verificar se é um usuário interno (admin/agente) ou cidadão
+      final isInternalUser = event.email.contains('admin') || event.email.contains('agente');
+      
       // Criar usuário simulado
       final user = User(
         id: '1',
-        name: 'João Silva',
+        name: isInternalUser ? 'Operador de Monitoramento' : 'João Silva',
         email: event.email,
         cpf: '123.456.789-00',
         phone: '(11) 99999-9999',
-        type: UserType.citizen,
+        type: isInternalUser ? UserType.agent : UserType.citizen,
         status: UserStatus.active,
+        department: isInternalUser ? 'Centro de Monitoramento' : null,
+        badge: isInternalUser ? 'OP001' : null,
+        rank: isInternalUser ? 'Operador' : null,
         createdAt: DateTime.now(),
         lastLogin: DateTime.now(),
-        permissions: {'permissions': ['report_occurrence', 'anonymous_report', 'view_own_reports', 'submit_feedback']},
+        permissions: isInternalUser 
+          ? {'permissions': ['monitor_all', 'manage_emergencies', 'view_reports', 'manage_teams']}
+          : {'permissions': ['report_occurrence', 'anonymous_report', 'view_own_reports', 'submit_feedback']},
         isVerified: true,
       );
       
-      const token = 'mock_jwt_token_citizen';
+      final token = isInternalUser ? 'mock_jwt_token_agent' : 'mock_jwt_token_citizen';
       
       emit(AuthAuthenticated(user, token));
     } catch (e) {
