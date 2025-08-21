@@ -10,7 +10,6 @@ workflows:
       vars:
         PACKAGE_NAME: "com.example.app_institucional"
     scripts:
-      - flutter pub get
       - flutter clean
       - flutter pub get
       - flutter build apk --release
